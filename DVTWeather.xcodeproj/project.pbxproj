@@ -15,6 +15,9 @@
 		A9678448276BEBAA00F75E91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9678446276BEBAA00F75E91 /* LaunchScreen.storyboard */; };
 		A9678453276BEBAB00F75E91 /* DVTWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9678452276BEBAB00F75E91 /* DVTWeatherTests.swift */; };
 		A967845E276BEBAB00F75E91 /* DVTWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A967845D276BEBAB00F75E91 /* DVTWeatherUITests.swift */; };
+		A9678470276D00D700F75E91 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A967846F276D00D700F75E91 /* WeatherModel.swift */; };
+		A9678471276D00D800F75E91 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A967846F276D00D700F75E91 /* WeatherModel.swift */; };
+		A9678472276D00D800F75E91 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A967846F276D00D700F75E91 /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,7 @@
 		A9678459276BEBAB00F75E91 /* DVTWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DVTWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A967845D276BEBAB00F75E91 /* DVTWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVTWeatherUITests.swift; sourceTree = "<group>"; };
 		A967845F276BEBAB00F75E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A967846F276D00D700F75E91 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,11 @@
 		A967843A276BEB9800F75E91 /* DVTWeather */ = {
 			isa = PBXGroup;
 			children = (
+				A967846E276D00A000F75E91 /* Model */,
 				A967843B276BEB9800F75E91 /* AppDelegate.swift */,
 				A967843D276BEB9800F75E91 /* SceneDelegate.swift */,
-				A967843F276BEB9800F75E91 /* ViewController.swift */,
-				A9678441276BEB9800F75E91 /* Main.storyboard */,
+				A967847A276D0FA800F75E91 /* Controller */,
+				A9678479276D0F7E00F75E91 /* Views */,
 				A9678444276BEBAA00F75E91 /* Assets.xcassets */,
 				A9678446276BEBAA00F75E91 /* LaunchScreen.storyboard */,
 				A9678449276BEBAA00F75E91 /* Info.plist */,
@@ -126,6 +131,30 @@
 				A967845F276BEBAB00F75E91 /* Info.plist */,
 			);
 			path = DVTWeatherUITests;
+			sourceTree = "<group>";
+		};
+		A967846E276D00A000F75E91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A967846F276D00D700F75E91 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A9678479276D0F7E00F75E91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9678441276BEB9800F75E91 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A967847A276D0FA800F75E91 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A967843F276BEB9800F75E91 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +289,7 @@
 			files = (
 				A9678440276BEB9800F75E91 /* ViewController.swift in Sources */,
 				A967843C276BEB9800F75E91 /* AppDelegate.swift in Sources */,
+				A9678470276D00D700F75E91 /* WeatherModel.swift in Sources */,
 				A967843E276BEB9800F75E91 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9678471276D00D800F75E91 /* WeatherModel.swift in Sources */,
 				A9678453276BEBAB00F75E91 /* DVTWeatherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9678472276D00D800F75E91 /* WeatherModel.swift in Sources */,
 				A967845E276BEBAB00F75E91 /* DVTWeatherUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
