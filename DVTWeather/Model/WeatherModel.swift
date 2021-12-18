@@ -7,21 +7,22 @@
 
 import Foundation
 struct WeatherModel: Decodable {
-    var isFavourite = false
+    var isFavourite:Bool?
     var list : [List]
 }
 
 struct List: Decodable{
    
-    var main: Main
-    var dt_txt: String
-    var weather: [Weather]
+    let main: Main
+    let dt_txt: String
+    let weather: [Weather]
 }
 struct Weather:Decodable {
-    var main: String
+    let id: Int
+    let description: String
 }
 struct Main: Decodable {
-    var temp: Double
-    var temp_min: Double
-    var temp_max: Double
+    let temp: Double
+    let temp_min: Double
+    let temp_max: Double
 }
