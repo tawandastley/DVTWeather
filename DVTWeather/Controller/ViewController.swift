@@ -9,13 +9,10 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataModelManager{
+    
     func didFailWithError(_ error: Error) {
         print(error)
     }
-    
-    
-   
-
     let locationManager = CLLocationManager()
     var weatherManager = WeatherManager()
     
@@ -34,12 +31,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataMod
     //Weekly View Outlets
     
     
+    @IBOutlet weak var weeklyView: UIView!
     @IBOutlet weak var dayOneDate: UILabel!
     @IBOutlet weak var dayOneTemp: UILabel!
     @IBOutlet weak var dayOneCondition: UIImageView!
-    
-
-    
     @IBOutlet weak var dayTwoDate: UILabel!
     @IBOutlet weak var daytwoCondition: UIImageView!
     @IBOutlet weak var dayTwoTemp: UILabel!
@@ -53,6 +48,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataMod
     @IBOutlet weak var dayFiveCondition: UIImageView!
     @IBOutlet weak var dayFiveTemp: UILabel!
     
+    var latitude: CLLocationDegrees = 0.0
+    var longitude: CLLocationDegrees = 0.0
     
     override func viewDidLoad() {
         weatherManager.delegate = self
@@ -64,12 +61,16 @@ class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataMod
         
         // Do any additional setup after loading the view.
     }
+    
+    //Location Delegates methods
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             let lat = location.coordinate.latitude
             let long = location.coordinate.longitude
-            
+            self.latitude = lat
+            self.longitude = long
             self.weatherManager.fetchWeather(latitude: lat, longitude: long)
+            
             
         }
     }
@@ -77,14 +78,41 @@ class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataMod
         print(error)
     }
     
+    
+    
     func didUpdateWeather(_ weatherDataModel: WeatherDataModel) {
         DispatchQueue.main.async {
             self.temperatureLabel.text = weatherDataModel.tempString
             self.currentTempLabel.text = weatherDataModel.maxTempString
             self.minTempLabel.text = weatherDataModel.minTempString
             self.maxTempLabel.text = weatherDataModel.maxTempString
-            self.conditionLabel.text = weatherDataModel.description.capitalized
-            self.imageView.image = UIImage(named: "sea_cloudy")
+            self.conditionLabel.text = weatherDataModel.description.uppercased()
+            self.cityLabel.text = weatherDataModel.city
+            
+            self.dayOneTemp.text = weatherDataModel.dayOneTempString
+            self.dayOneCondition.image = UIImage(systemName: weatherDataModel.dayOneSFSymbol)
+            self.dayOneDate.text = "Today"
+            
+            self.dayTwoTemp.text = weatherDataModel.dayTwoTempString
+            self.daytwoCondition.image = UIImage(systemName: weatherDataModel.dayTwoSFSymbol)
+            self.dayTwoDate.text = weatherDataModel.firstDay
+            
+            
+            self.dayThreeTemp.text = weatherDataModel.dayTwoTempString
+            self.dayThreeCondition.image = UIImage(systemName: weatherDataModel.dayThreeSFSymbol)
+            self.dayThreeDate.text = weatherDataModel.thirdDay
+            
+            self.dayFourTemp.text = weatherDataModel.dayFourTempString
+            self.dayFourCondition.image = UIImage(systemName: weatherDataModel.dayFourSFSymbol)
+            self.dayFourDate.text = weatherDataModel.fourthDate
+            
+            self.dayFiveTemp.text = weatherDataModel.dayFiveTempString
+            self.dayFiveCondition.image = UIImage(systemName: weatherDataModel.dayFiveSFSymbol)
+            self.dayFiveDate.text = weatherDataModel.fifthDay
+            
+            self.imageView.image = UIImage(named: weatherDataModel.backgroundImage)
+            self.weeklyView.backgroundColor = weatherDataModel.hexStringToUIColor(hex: weatherDataModel.backgroundColor)
+            
         }
         
     }

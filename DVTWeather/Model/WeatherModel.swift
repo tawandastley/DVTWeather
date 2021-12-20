@@ -7,7 +7,7 @@
 
 import Foundation
 struct WeatherModel: Decodable {
-    var isFavourite:Bool?
+    let city: City
     var list : [List]
 }
 
@@ -25,4 +25,7 @@ struct Main: Decodable {
     let temp: Double
     let temp_min: Double
     let temp_max: Double
+}
+struct City : Decodable {
+    let name: String
 }
