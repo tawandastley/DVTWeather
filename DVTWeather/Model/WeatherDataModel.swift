@@ -103,7 +103,7 @@ struct WeatherDataModel {
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        var stringToDate = dateFormatter.date(from: dateString)!
+        let stringToDate = dateFormatter.date(from: dateString)!
         dateFormatter.dateFormat = "EEEE"
         let day = (dateFormatter.string(from: stringToDate))
         return day

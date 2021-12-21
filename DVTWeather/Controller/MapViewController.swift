@@ -100,9 +100,11 @@ class MapViewController: UIViewController, UITableViewDelegate, MKMapViewDelegat
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourcerView, completionHandler) in
             self.context.delete(self.favPlaces[indexPath.row])
             self.favPlaces.remove(at: indexPath.row)
-            self.tableView.reloadData()
+            self.savePlace()
+            
         }
         let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])
+        self.tableView.reloadData()
         return swipeConfig
     }
 }
