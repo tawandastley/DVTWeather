@@ -62,7 +62,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataMod
         // Do any additional setup after loading the view.
     }
     
-    //Location Delegates methods
+    //MARK: Location Manager Delegates methods
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             let lat = location.coordinate.latitude

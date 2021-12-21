@@ -302,7 +302,7 @@
             </objects>
             <point key="canvasLocation" x="1026.1682242990653" y="-185.31317494600432"/>
         </scene>
-        <!--Map View Controller-->
+        <!-- Favourite Locations-->
         <scene sceneID="ViB-2T-OhP">
             <objects>
                 <viewController id="yaG-H8-0rl" customClass="MapViewController" customModule="DVTWeather" customModuleProvider="target" sceneMemberID="viewController">
@@ -316,7 +316,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9bi-Lq-uxe">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="423"/>
                                         <subviews>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="H1b-WJ-95U">
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1b-WJ-95U">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="423"/>
                                             </mapView>
                                         </subviews>
@@ -338,6 +338,16 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GOs-QT-szS">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="298"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favPlace" id="4qj-pE-0l2">
+                                                        <rect key="frame" x="0.0" y="28" width="428" height="43.666667938232422"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4qj-pE-0l2" id="SgG-zm-OxQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </tableViewCellContentView>
+                                                    </tableViewCell>
+                                                </prototypes>
                                             </tableView>
                                         </subviews>
                                     </stackView>
@@ -358,8 +368,8 @@
                             <constraint firstAttribute="bottomMargin" secondItem="wTA-nO-wbq" secondAttribute="bottom" constant="-9" id="tga-f5-LDq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FbF-9t-CAA">
-                        <barButtonItem key="rightBarButtonItem" title="Add to Favourites" image="heart" catalog="system" id="kZI-JW-O4V">
+                    <navigationItem key="navigationItem" title=" Favourite Locations" largeTitleDisplayMode="always" id="FbF-9t-CAA">
+                        <barButtonItem key="rightBarButtonItem" title="Add " id="kZI-JW-O4V">
                             <connections>
                                 <action selector="favTapped:" destination="yaG-H8-0rl" id="hX1-WH-0K9"/>
                             </connections>
@@ -380,6 +390,7 @@
                 <tabBarController title="Forecast" automaticallyAdjustsScrollViewInsets="NO" id="0RL-tN-xiM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c2b-Lf-GE8">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

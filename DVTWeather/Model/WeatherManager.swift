@@ -66,9 +66,9 @@ struct WeatherManager {
             let secondDay = decodedData.list[9].dt_txt
             
             //Day Three Values
-            let dayThreeTemp = decodedData.list[19].main.temp
-            let dayThreeID = decodedData.list[19].weather[0].id
-            let thirdDay = decodedData.list[19].dt_txt
+            let dayThreeTemp = decodedData.list[18].main.temp
+            let dayThreeID = decodedData.list[18].weather[0].id
+            let thirdDay = decodedData.list[18].dt_txt
             
             //Day Four Values
             let dayFourTemp = decodedData.list[27].main.temp
@@ -76,9 +76,9 @@ struct WeatherManager {
             let fourthDay = decodedData.list[27].dt_txt
             
             //Day Two Values
-            let dayFiveTemp = decodedData.list[39].main.temp
-            let dayFiveID = decodedData.list[39].weather[0].id
-            let fifthDay = decodedData.list[39].dt_txt
+            let dayFiveTemp = decodedData.list[35].main.temp
+            let dayFiveID = decodedData.list[35].weather[0].id
+            let fifthDay = decodedData.list[35].dt_txt
             
             
 //
