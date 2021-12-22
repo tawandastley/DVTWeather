@@ -91,24 +91,24 @@ class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataMod
             self.cityLabel.text = weatherDataModel.city
             
             self.dayOneTemp.text = weatherDataModel.dayOneTempString
-            self.dayOneCondition.image = UIImage(systemName: weatherDataModel.dayOneSFSymbol)
+            self.dayOneCondition.image = UIImage(named: weatherDataModel.dayOneSFSymbol)
             self.dayOneDate.text = "Today"
             
             self.dayTwoTemp.text = weatherDataModel.dayTwoTempString
-            self.daytwoCondition.image = UIImage(systemName: weatherDataModel.dayTwoSFSymbol)
+            self.daytwoCondition.image = UIImage(named: weatherDataModel.dayTwoSFSymbol)
             self.dayTwoDate.text = weatherDataModel.firstDay
             
             
             self.dayThreeTemp.text = weatherDataModel.dayTwoTempString
-            self.dayThreeCondition.image = UIImage(systemName: weatherDataModel.dayThreeSFSymbol)
+            self.dayThreeCondition.image = UIImage(named: weatherDataModel.dayThreeSFSymbol)
             self.dayThreeDate.text = weatherDataModel.thirdDay
             
             self.dayFourTemp.text = weatherDataModel.dayFourTempString
-            self.dayFourCondition.image = UIImage(systemName: weatherDataModel.dayFourSFSymbol)
+            self.dayFourCondition.image = UIImage(named: weatherDataModel.dayFourSFSymbol)
             self.dayFourDate.text = weatherDataModel.fourthDate
             
             self.dayFiveTemp.text = weatherDataModel.dayFiveTempString
-            self.dayFiveCondition.image = UIImage(systemName: weatherDataModel.dayFiveSFSymbol)
+            self.dayFiveCondition.image = UIImage(named: weatherDataModel.dayFiveSFSymbol)
             self.dayFiveDate.text = weatherDataModel.fifthDay
             
             self.imageView.image = UIImage(named: weatherDataModel.backgroundImage)

@@ -11,22 +11,20 @@ struct WeatherDataModel {
     
     func getCondition(of temperature: Int) -> String {
         switch temperature {
-        case 200...232:
-            return "cloud.bolt"
-        case 300...321:
-            return "cloud.drizzle"
+        case 200...321:
+            return "partlysunny"
         case 500...531:
-            return "cloud.heavyrain"
+            return "rain"
         case 600...622:
-            return "snowflake"
+            return "partlysunny"
         case 700...781:
-            return "sun.dust"
+            return "clear"
         case 800:
-            return "sun.max"
+            return "clear"
         case 801...804:
-            return "cloud.bolt"
+            return "rain"
         default:
-            return "sun.max"
+            return "partlysunny"
         }
     }
     

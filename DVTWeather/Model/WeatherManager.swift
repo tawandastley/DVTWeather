@@ -59,6 +59,7 @@ struct WeatherManager {
             let dayOneTemp = decodedData.list[0].main.temp_max
             let dayOneID = decodedData.list[0].weather[0].id
             let firstDay = decodedData.list[8].dt_txt
+            print(firstDay)
             
             //Day Two Values
             let dayTwoTemp = decodedData.list[9].main.temp

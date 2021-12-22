@@ -15,12 +15,13 @@ class MapViewController: UIViewController, UITableViewDelegate, MKMapViewDelegat
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var favPlaces = [MyPlaces]()
     
     var latitude: CLLocationDegrees = 0.0
     var longitude: CLLocationDegrees = 0.0
-    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     override func viewDidLoad() {
         checkLocation()
         mapView.delegate = self
