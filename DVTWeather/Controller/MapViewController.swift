@@ -27,6 +27,8 @@ class MapViewController: UIViewController, UITableViewDelegate, MKMapViewDelegat
         mapView.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+       
+
         super.viewDidLoad()
         loadPlaces()
         // Do any additional setup after loading the view.
@@ -74,8 +76,7 @@ class MapViewController: UIViewController, UITableViewDelegate, MKMapViewDelegat
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-        print("fav pressed")
-        print(latitude)
+       
     }
     
     
@@ -163,6 +164,19 @@ extension MapViewController : CLLocationManagerDelegate {
         @unknown default:
             fatalError()
         }
+    }
+    
+}
+extension MapViewController: UISearchBarDelegate{
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request: NSFetchRequest<MyPlaces> = MyPlaces.fetchRequest()
+        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        request.predicate = predicate
+        let decriptor = NSSortDescriptor(key: "title", ascending: true)
+        request.sortDescriptors = [decriptor]
+        
+      
     }
     
 }

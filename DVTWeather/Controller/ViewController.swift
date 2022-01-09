@@ -57,6 +57,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataMod
         locationManager.requestWhenInUseAuthorization()
       
         locationManager.startUpdatingLocation()
+        self.weatherManager.fetchWeather(latitude: latitude, longitude: longitude)
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.

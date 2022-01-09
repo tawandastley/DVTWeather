@@ -332,12 +332,21 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="favourite places" translatesAutoresizingMaskIntoConstraints="NO" id="iy1-br-Kks">
+                                        <rect key="frame" x="0.0" y="501" width="428" height="56"/>
+                                        <color key="barTintColor" red="0.72479221770000002" green="0.89715168680000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="yaG-H8-0rl" id="Ziw-BU-jf4"/>
+                                        </connections>
+                                    </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v01-8B-jLj">
-                                        <rect key="frame" x="0.0" y="501" width="428" height="298"/>
+                                        <rect key="frame" x="0.0" y="584" width="428" height="215"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GOs-QT-szS">
-                                                <rect key="frame" x="0.0" y="0.0" width="428" height="298"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="428" height="215"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="sectionIndexBackgroundColor" red="0.38767072559999999" green="0.52103626729999997" blue="0.57559698820000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favPlace" id="4qj-pE-0l2">
                                                         <rect key="frame" x="0.0" y="28" width="428" height="43.666667938232422"/>
@@ -393,6 +402,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="systemGray5Color"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="qTw-dN-JB9"/>
@@ -433,6 +443,9 @@
         <image name="sun.max" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

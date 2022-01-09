@@ -19,7 +19,7 @@ class WeatherDataFormatTests: XCTestCase {
         XCTAssertEqual(weatherDatModel.dayFiveTempString, "15°")
         XCTAssertEqual(weatherDatModel.getDay(of: "2021-12-25 12:00:00"), "Saturday")
         XCTAssertEqual(weatherDatModel.getDay(of: "2021-12-26 12:00:00"), "Sunday")
-        
+        XCTAssertEqual(weatherDatModel.getDay(of: "2021-12-28 12:00:00"), "Tuesday")
        
     }
     func testConditionStatus(){
