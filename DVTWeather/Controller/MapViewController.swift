@@ -9,7 +9,8 @@ import UIKit
 import MapKit
 import CoreData
 
-class MapViewController: UIViewController, UITableViewDelegate, MKMapViewDelegate, UITableViewDataSource {
+class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+
     
     var locationManager = CLLocationManager()
     
@@ -54,6 +55,7 @@ class MapViewController: UIViewController, UITableViewDelegate, MKMapViewDelegat
         }
         self.tableView.reloadData()
     }
+    
     @IBAction func favTapped(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
@@ -66,7 +68,6 @@ class MapViewController: UIViewController, UITableViewDelegate, MKMapViewDelegat
             let currentPlace = FavouritePlaces(coordinate: CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude), title: newPlace.title ?? "favourite place")
             self.mapView.addAnnotation(currentPlace)
             self.favPlaces.append(newPlace)
-            
             self.savePlace()
             
         }
@@ -114,7 +115,7 @@ class MapViewController: UIViewController, UITableViewDelegate, MKMapViewDelegat
 
 //MARK: MAPVIEW DELEGATE METHODS
 
-extension MapViewController : CLLocationManagerDelegate {
+extension MapViewController : CLLocationManagerDelegate,MKMapViewDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {

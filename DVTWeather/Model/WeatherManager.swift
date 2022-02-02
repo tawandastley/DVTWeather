@@ -22,25 +22,21 @@ struct WeatherManager {
         
         performRequest(with: url)
     }
+    
     func performRequest (with url:  String ) { // function to fetch data from the web server
-        if let url = URL(string: url) {
-            print(url)
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { (data, response, error) in
+            guard let  url = URL(string: url) else {return}
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     self.delegate?.didFailWithError(error!)
                     return
                 }
-                if let weatherData = data {
-                    if let weather = self.parseData(weatherData) {
+                guard let weatherData = data else { return }
+                guard let weather = self.parseData(weatherData) else {return }
                         self.delegate?.didUpdateWeather(weather)
                     }
+                task.resume()
                 }
-                
-            }
-            task.resume()
-        }
-    }
+    
     func parseData(_ weatherData: Data) -> WeatherDataModel?{ //function to convert the downloaded data into an optional WeatherDataModel object
         let decoder = JSONDecoder ()
         do {
@@ -95,5 +91,5 @@ struct WeatherManager {
         }
     }
     
-    
 }
+

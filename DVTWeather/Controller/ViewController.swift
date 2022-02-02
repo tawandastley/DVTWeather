@@ -9,10 +9,12 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataModelManager{
-    
     func didFailWithError(_ error: Error) {
-        print(error)
+        
     }
+    
+    
+    
     let locationManager = CLLocationManager()
     var weatherManager = WeatherManager()
     
@@ -50,6 +52,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataMod
     
     var latitude: CLLocationDegrees = 0.0
     var longitude: CLLocationDegrees = 0.0
+    var location  = [CLLocationDegrees]()
     
     override func viewDidLoad() {
         weatherManager.delegate = self
@@ -57,27 +60,22 @@ class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataMod
         locationManager.requestWhenInUseAuthorization()
       
         locationManager.startUpdatingLocation()
-        self.weatherManager.fetchWeather(latitude: latitude, longitude: longitude)
+        guard let location = locationManager.location else {return}
+        self.weatherManager.fetchWeather(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+       
     }
     
     //MARK: Location Manager Delegates methods
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            let lat = location.coordinate.latitude
-            let long = location.coordinate.longitude
-            self.latitude = lat
-            self.longitude = long
-            self.weatherManager.fetchWeather(latitude: lat, longitude: long)
-            
-            
+            self.weatherManager.fetchWeather(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .actionSheet)
+        let action = UIAlertAction(title: <#T##String?#>, style: <#T##UIAlertAction.Style#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
     }
     
     

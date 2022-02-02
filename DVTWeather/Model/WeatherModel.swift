@@ -10,9 +10,7 @@ struct WeatherModel: Decodable {
     let city: City
     var list : [List]
 }
-
 struct List: Decodable{
-   
     let main: Main
     let dt_txt: String
     let weather: [Weather]
@@ -29,3 +27,4 @@ struct Main: Decodable {
 struct City : Decodable {
     let name: String
 }
+
