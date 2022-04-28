@@ -11,8 +11,12 @@ import CoreLocation
 class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataModelManager{
     
     func didFailWithError(_ error: Error) {
-        print(error)
+        let alert = UIAlertController(title: "ERROR", message: error.localizedDescription, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OKAY", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
+    
     let locationManager = CLLocationManager()
     var weatherManager = WeatherManager()
     
@@ -98,7 +102,6 @@ class ViewController: UIViewController,CLLocationManagerDelegate, WeatherDataMod
             self.dayTwoTemp.text = weatherDataModel.dayTwoTempString
             self.daytwoCondition.image = UIImage(named: weatherDataModel.dayTwoSFSymbol)
             self.dayTwoDate.text = weatherDataModel.firstDay
-            
             
             self.dayThreeTemp.text = weatherDataModel.dayTwoTempString
             self.dayThreeCondition.image = UIImage(named: weatherDataModel.dayThreeSFSymbol)
