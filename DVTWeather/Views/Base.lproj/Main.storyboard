@@ -332,19 +332,11 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="favourite places" translatesAutoresizingMaskIntoConstraints="NO" id="iy1-br-Kks">
-                                        <rect key="frame" x="54" y="501" width="320" height="170"/>
-                                        <color key="barTintColor" red="0.72479221770000002" green="0.89715168680000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="yaG-H8-0rl" id="Ziw-BU-jf4"/>
-                                        </connections>
-                                    </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v01-8B-jLj">
-                                        <rect key="frame" x="0.0" y="698" width="428" height="101"/>
+                                        <rect key="frame" x="0.0" y="501" width="428" height="298"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GOs-QT-szS">
-                                                <rect key="frame" x="0.0" y="0.0" width="428" height="101"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="428" height="298"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="sectionIndexBackgroundColor" red="0.38767072559999999" green="0.52103626729999997" blue="0.57559698820000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <prototypes>

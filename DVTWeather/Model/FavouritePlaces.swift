@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 
 class FavouritePlaces: NSObject, MKAnnotation {
+    
     var coordinate: CLLocationCoordinate2D
     var title: String?
     
