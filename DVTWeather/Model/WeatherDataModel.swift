@@ -38,9 +38,7 @@ struct WeatherDataModel {
         switch temperatureValue {
         case 200...321:
             return "sea_cloudy"
-            
         case 500...531:
-            
             return "sea_rainy"
         case 600...622:
             return "sea_cloudy"
@@ -59,10 +57,8 @@ struct WeatherDataModel {
         switch temperatureValue {
         case 200...321:
             return "54717A"
-            
         case 500...531:
             return "57575D"
-            
         case 600...622:
             return "54717A"
         case 700...781:
@@ -76,19 +72,16 @@ struct WeatherDataModel {
         }
     }
     func hexStringToUIColor (hex:String) -> UIColor {
-        var characterString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        var characterString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (characterString.hasPrefix("#")) {
             characterString.remove(at: characterString.startIndex)
         }
-        
         if ((characterString.count) != 6) {
             return UIColor.gray
         }
-        
         var rgbValue:UInt64 = 0
         Scanner(string: characterString).scanHexInt64(&rgbValue)
-        
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
@@ -101,7 +94,6 @@ struct WeatherDataModel {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
         let stringToDate = dateFormatter.date(from: dateString)!
         dateFormatter.dateFormat = "EEEE"
         let day = (dateFormatter.string(from: stringToDate))
@@ -132,12 +124,11 @@ struct WeatherDataModel {
     
     var backgroundImage: String {
         getBackgroundImage(of: id)
-        
     }
+    
     var backgroundColor: String {
         getHexValue(of: id)
     }
-    //
     
     //    //DAY ONE CONDITIONS//
     let dayOneTemp: Double
@@ -147,9 +138,11 @@ struct WeatherDataModel {
     var firstDay : String {
         return getDay(of: dayOneDate)
     }
+    
     var dayOneTempString: String{
         return getString(of: dayOneTemp)
     }
+    
     var dayOneSFSymbol: String {
         return getCondition(of: dayOneID)
     }
@@ -214,6 +207,4 @@ struct WeatherDataModel {
     var dayFiveSFSymbol: String {
         return getCondition(of: dayFiveID)
     }
-    
-    
 }
